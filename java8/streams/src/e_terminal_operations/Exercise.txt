@@ -1,0 +1,5 @@
+Find the first name longer than 5 letters.
+
+Check if all numbers are positive.
+
+Use reduce() to find product of all integers.

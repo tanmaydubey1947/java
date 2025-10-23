@@ -1,0 +1,3 @@
+Calculate average and sum from an IntStream.
+
+Use Optional.stream() to merge optional values.

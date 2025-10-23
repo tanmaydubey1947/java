@@ -1,0 +1,7 @@
+Group employees by department.
+
+Partition numbers into even/odd.
+
+Join strings into a CSV.
+
+Find average of a list of doubles.

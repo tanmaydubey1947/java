@@ -1,0 +1,5 @@
+Write a custom collector that concatenates strings with a space.
+
+Demonstrate short-circuiting with anyMatch().
+
+Merge two streams and remove duplicates.

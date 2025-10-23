@@ -1,0 +1,5 @@
+Convert all words to uppercase using map().
+
+Sort numbers descending.
+
+Remove duplicates from a list.

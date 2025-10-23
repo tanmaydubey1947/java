@@ -1,0 +1,5 @@
+Flatten a list of sentences into a list of words.
+
+Print only the first 5 even numbers.
+
+Skip the first 3 names and print the rest.

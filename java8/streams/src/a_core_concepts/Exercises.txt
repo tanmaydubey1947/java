@@ -1,0 +1,7 @@
+Print all names from a list that start with "A".
+
+Count how many numbers in a list are even.
+
+Explain why stream() and parallelStream() are different.
+=> Because stream() processes elements sequentially in a single thread, while parallelStream() divides the workload across multiple threads,
+allowing for concurrent processing which can improve performance for large datasets.
