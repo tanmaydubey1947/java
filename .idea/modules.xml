@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Git Repos.iml" filepath="$PROJECT_DIR$/Git Repos.iml" />
       <module fileurl="file://$PROJECT_DIR$/java8/streams/streams.iml" filepath="$PROJECT_DIR$/java8/streams/streams.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test_module_1/test_module_1.iml" filepath="$PROJECT_DIR$/test_module_1/test_module_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test_module_2/test_module_2.iml" filepath="$PROJECT_DIR$/test_module_2/test_module_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/use_test_modules/use_test_modules.iml" filepath="$PROJECT_DIR$/use_test_modules/use_test_modules.iml" />
     </modules>
   </component>
 </project>
