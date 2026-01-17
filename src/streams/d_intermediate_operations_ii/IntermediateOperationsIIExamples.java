@@ -1,4 +1,4 @@
-package d_intermediate_operations_ii;
+package streams.d_intermediate_operations_ii;
 
 import java.util.Arrays;
 import java.util.List;

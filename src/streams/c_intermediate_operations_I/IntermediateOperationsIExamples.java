@@ -1,4 +1,4 @@
-package c_intermediate_operations_I;
+package streams.c_intermediate_operations_I;
 
 import java.util.List;
 import java.util.stream.Collectors;

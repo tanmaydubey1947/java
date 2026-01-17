@@ -1,4 +1,4 @@
-package b_stream_creation;
+package streams.b_stream_creation;
 
 import java.util.Arrays;
 import java.util.List;

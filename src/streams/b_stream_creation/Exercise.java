@@ -1,4 +1,4 @@
-package b_stream_creation;
+package streams.b_stream_creation;
 
 import java.util.Random;
 import java.util.stream.Stream;

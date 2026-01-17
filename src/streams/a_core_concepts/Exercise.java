@@ -1,4 +1,4 @@
-package a_core_concepts;
+package streams.a_core_concepts;
 
 import java.util.Arrays;
 import java.util.List;
