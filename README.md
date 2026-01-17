@@ -38,6 +38,43 @@ public interface MyInterface {
 }
 ```
 
-* Stream API enhancements (takeWhile, dropWhile, iterate)
-* Optional improvements
 * JShell
+To start JShell, simply run the command `jshell` in your terminal. You can then type Java code directly into the shell and see immediate results. For example:
+```
+jshell> int x = 10;
+jshell> int y = 20;
+jshell> int sum = x + y;
+jshell> System.out.println("Sum: " + sum);
+Sum: 30
+```
+
+* Stream API enhancements (takeWhile, dropWhile, iterate)
+Java 9 introduced new methods to the Stream API for better control over stream processing. For example:
+```java
+List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6);
+List<Integer> taken = numbers.stream()
+                             .takeWhile(n -> n < 4)
+                             .collect(Collectors.toList()); // Result: [1, 2, 3]
+List<Integer> dropped = numbers.stream()
+                              .dropWhile(n -> n < 4)
+                              .collect(Collectors.toList()); // Result: [4, 5, 6]
+                              
+Stream.iterate(1, n -> n < 10, n -> n + 2)
+        .forEach(System.out::println); // Prints odd numbers less than 10
+```
+    
+                              
+* Optional improvements
+Java 9 added new methods to the Optional class for better handling of optional values which include ifPresentOrElse and or.
+* For example:
+```java
+Optional<String> optional = Optional.of("Hello");
+optional.ifPresentOrElse(
+    value -> System.out.println("Value is present: " + value),
+    () -> System.out.println("Value is absent")
+);
+
+Optional<String> emptyOptional = Optional.empty();
+String value = emptyOptional.or(() -> Optional.of("Default Value")).get();
+System.out.println("Value: " + value);
+```
