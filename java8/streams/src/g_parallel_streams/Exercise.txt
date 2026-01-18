@@ -1,3 +1,0 @@
-Compare sequential vs parallel sum timing.
-
-Demonstrate a race condition using shared mutable variable.
