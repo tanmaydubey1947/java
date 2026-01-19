@@ -1,0 +1,1 @@
+Hello, the JAVA 11 feature is reading files in a single line using Path.

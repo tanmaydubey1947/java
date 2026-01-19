@@ -1,191 +1,64 @@
-# Java Features by Version
+# JAVA 11 Features
 
-## Table of Contents
-- [Java 8 (Most Important – Must Know)](#java-8-most-important--must-know)
-- [Java 9](#java-9)
-- [Java 10](#java-10)
-- [Java 11 (Very Important – LTS)](#java-11-very-important--lts)
-- [Java 12](#java-12)
-- [Java 13](#java-13)
-- [Java 14](#java-14)
-- [Java 15](#java-15)
-- [Java 16](#java-16)
-- [Java 17 (Very Important – LTS)](#java-17-very-important--lts)
-- [Java 18](#java-18)
-- [Java 19](#java-19)
-- [Java 20](#java-20)
-- [Java 21 (Very Important – LTS)](#java-21-very-important--lts)
-- [Java 22](#java-22)
-- [Java 23](#java-23)
-- [Java 24](#java-24)
-- [Java 25](#java-25)
-- [Java 26](#java-26)
+* HTTP Client API
 
----
+Before JAVA 11, HttpURL was the primary way to make HTTP requests, which was cumbersome and lacked modern features. 
+JAVA 11 introduced a new HTTP Client API that supports HTTP/2, WebSocket, and asynchronous programming.
 
-## **Java 8 (Most Important – Must Know)**
+Example:
+```java
+HttpClient client = HttpClient.newHttpClient();
+HttpRequest request = HttpRequest.newBuilder()
+    .uri(URI.create("https://example.com"))
+    .build();
+HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+System.out.println(response.body());
+```
 
-- Lambda Expressions
-- Functional Interfaces
-- Method References
-- Stream API (map, filter, reduce, collect)
-- Optional
-- Default & Static Methods in Interfaces
-- Date & Time API (`java.time`)
-- `forEach`
-- Parallel Streams
-- `Predicate`, `Function`, `Consumer`, `Supplier`
+* String methods (isBlank, lines, repeat, strip)
+Example:
+```java
+String str = "  Hello World  ";
+System.out.println(str.isBlank()); // false
+System.out.println(str.strip()); // "Hello World"
+System.out.println(str.lines().count()); // 1
+System.out.println("Hi! ".repeat(3)); // "Hi! Hi! Hi! "
+```
 
----
 
-## **Java 9**
+* File methods (readString, writeString)
+Before JAVA 11, reading and writing files required multiple lines of code. 
+JAVA 11 introduced convenient methods to read and write strings directly to files.
+Example:
+```java
+Path path = Paths.get("example.txt");
+Files.writeString(path, "Hello, World!");
 
-- Java Platform Module System (JPMS)
-- Module descriptors (`module-info.java`)
-- Factory methods for Collections (`List.of`, `Set.of`, `Map.of`)
-- Stream API enhancements (`takeWhile`, `dropWhile`, `iterate`)
-- Optional improvements
-- Private methods in interfaces
-- JShell
+Path readPath = Paths.get("example.txt");
+String content = Files.readString(readPath);
+System.out.println(content); // "Hello, World!"
+```
 
----
 
-## **Java 10**
+* Lambda parameter `var`
+Till JAVA 10, lambda parameters had to be explicitly typed or inferred. From JAVA 11, you can use `var` in lambda parameters.
+* Example:
+```java
+BiFunction<Integer, Integer, Integer> add = (var a, var b) -> a + b;
+System.out.println(add.apply(5, 10)); // 15
+```
+NOTE: You cannot mix `var` and explicit types in the same parameter list. i.e., (var a, int b) is not allowed.
 
-- Local Variable Type Inference (`var`)
-- Unmodifiable Collections enhancements
+* Removal of Java EE & CORBA modules
+Below modules were removed from the JDK in JAVA 11:
+- java.xml.ws (JAX-WS)
+- java.xml.bind (JAXB)
+- java.activation (JAF)
+- java.corba (CORBA)
+- java.transaction (JTA)
+- java.se.ee (Java EE APIs)
 
----
-
-## **Java 11 (Very Important – LTS)**
-
-- HTTP Client API
-- String methods (`isBlank`, `lines`, `repeat`, `strip`)
-- File methods (`readString`, `writeString`)
-- Lambda parameter `var`
-- Removal of Java EE & CORBA modules
-
----
-
-## **Java 12**
-
-- Switch Expressions (preview)
-- JVM improvements (GC changes – interview surface level)
-
----
-
-## **Java 13**
-
-- Text Blocks (preview)
-- Switch Expressions enhancements
-
----
-
-## **Java 14**
-
-- Switch Expressions (final)
-- Records (preview)
-- Pattern Matching for `instanceof` (preview)
-
----
-
-## **Java 15**
-
-- Text Blocks (final)
-- Sealed Classes (preview)
-- Hidden Classes
-
----
-
-## **Java 16**
-
-- Records (final)
-- Pattern Matching for `instanceof` (final)
-- Sealed Classes (second preview)
-
----
-
-## **Java 17 (Very Important – LTS)**
-
-- Sealed Classes (final)
-- Strong Encapsulation of JDK Internals
-- Pattern Matching enhancements
-- New GC updates (`ZGC`, `Shenandoah` – conceptual)
-
----
-
-## **Java 18**
-
-- Simple Web Server
-- UTF-8 as default charset
-- Code Snippets in JavaDoc
-
----
-
-## **Java 19**
-
-- Virtual Threads (preview)
-- Structured Concurrency (incubator)
-- Pattern Matching for `switch` (preview)
-
----
-
-## **Java 20**
-
-- Pattern Matching for `switch` (2nd preview)
-- Scoped Values (incubator)
-
----
-
-## **Java 21 (Very Important – LTS)**
-
-- Virtual Threads (final)
-- Pattern Matching for `switch` (final)
-- Record Patterns
-- Sequenced Collections
-- Structured Concurrency (preview)
-- Scoped Values (preview)
-
----
-
-## **Java 22**
-
-- Foreign Function & Memory API (final)
-- Stream Gatherers (preview)
-- Statements before `super()`
-- String Templates (2nd preview)
-
----
-
-## **Java 23**
-
-- String Templates (preview updates)
-- Implicitly Declared Classes (preview)
-- Unnamed Patterns & Variables (preview)
-
----
-
-## **Java 24**
-
-- Scoped Values (final)
-- Structured Concurrency (final)
-- Class-File API (preview)
-
----
-
-## **Java 25**
-
-- Primitive Patterns (preview)
-- Flexible Constructor Bodies
-- Performance & GC improvements
-
----
-
-## **Java 26**
-
-- Pattern Matching refinements
-- Language simplifications (records, patterns, constructors)
-- JVM & performance improvements
-- Preview features stabilization focus
-
----
+Corba Modules which were removed:
+- java.corba
+- java.rmi
+- org.omg.*
