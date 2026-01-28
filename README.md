@@ -1,42 +1,37 @@
-Java 13 introduced below features:
+Java 14 introduced below features:
 
-1. Text Blocks (Preview): Multi-line string literals that simplify the creation of strings that span multiple lines.
-Note that Text Blocks were finalized in Java 15. In Java 13 it came as a preview feature.
-2. Switch Expressions (Preview): Enhancements to the switch statement that allow it to be used as an expression and return a value.
-
-
-ExampleText Blocks:
+1. Switch Expression (Final)
+- Switch expressions allow you to use the switch statement as an expression, returning a value.
+- Example:
 ```java
-public class TextBlockExample {
-    public static void main(String[] args) {
-        String json = """
-                      {
-                          "name": "John",
-                          "age": 30,
-                          "city": "New York"
-                      }
-                      """;
-        System.out.println(json);
-    }
-}
-```
+  String day = "MONDAY";
+  String typeOfDay = switch (day) {
+        case "SATURDAY", "SUNDAY" -> "Weekend";
+        default -> "Weekday";
+  };
+  ```
 
-Example Switch Expressions:
+2. Records (Preview)
+- Records provide a compact syntax for declaring classes that are transparent holders for shallowly immutable data.
+- Behind the scenes, the compiler automatically generates boilerplate code such as constructors, accessors, equals(), hashCode(), and toString() methods.
+- Records are introduced for carrying data with less code. That's why they don't have setters.
+- Example:
 ```java
-public class SwitchExpressionExample {
-    public static void main(String[] args) {
-        int day = 3;
-        String dayName = switch (day) {
-            case 1 -> "Monday";
-            case 2 -> "Tuesday";
-            case 3 -> "Wednesday";
-            case 4 -> "Thursday";
-            case 5 -> "Friday";
-            case 6 -> "Saturday";
-            case 7 -> "Sunday";
-            default -> "Invalid day";
-        };
-        System.out.println(dayName);
-    }
-}
-```
+  public record Point(int x, int y) {}
+  ```
+
+3. Pattern Matching for instanceof (Preview)
+- This feature simplifies the common practice of casting an object after checking its type with instanceof.
+- Example Before:
+```java
+  if (obj instanceof String) {
+        String s = (String) obj;
+        System.out.println(s.toLowerCase());
+  }
+  ```
+- Example After:
+```java
+  if (obj instanceof String s) {
+        System.out.println(s.toLowerCase());
+  }
+  ```
