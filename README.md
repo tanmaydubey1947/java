@@ -1,6 +1,6 @@
 # Java Features by Version
 
-## Table of Contents
+## Table of Contents 
 - [Java 8 (Most Important – Must Know)](#java-8-most-important--must-know)
 - [Java 9](#java-9)
 - [Java 10](#java-10)
