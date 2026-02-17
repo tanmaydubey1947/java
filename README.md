@@ -1,40 +1,25 @@
-Java 15 introduced below features:
+Java 16 introduced below features:
 
-1. Text Blocks (Final)
-   - Multi-line string literals that improve readability of strings in code.
-   - Example:
-     ```java
-     String json = """
-                   {
-                       "name": "John",
-                       "age": 30
-                   }
-                   """;
-     ```
-     
-2. Hidden Classes: These are not intended to be used directly by developers but provide advanced capabilities for frameworks and libraries.
-    - Classes that are not discoverable by the class loader, useful for frameworks that generate classes at runtime.
-    - Example:
-      ```java
-      // Example usage of hidden classes would typically involve advanced class loading techniques.
-      ```
+1. Records Final:
+   - Records provide a compact syntax for declaring classes that are transparent holders for shallowly immutable data.
+   - Behind the scenes, the compiler automatically generates boilerplate code such as constructors, accessors, equals(), hashCode(), and toString() methods.
+   - Records are introduced for carrying data with less code. That's why they don't have setters.
 
-3. Sealed Classes (Preview)
-   - Allow developers to restrict which other classes or interfaces may extend or implement them.
-   - Subclasses must be: final, sealed, or non-sealed.
-   - Sealed classes work with interfaces and abstract classes as well.
-   - A non-sealed class is a normal class in every sense, but it must be explicitly marked non-sealed to be allowed to extend a sealed class and reopen inheritance.
-   - Example:
-     ```java
-     public sealed class Shape permits Circle, Square {
-         // class body
-     }
-     
-     public final class Circle extends Shape {
-         // class body
-     }
-     
-     public final class Square extends Shape {
-         // class body
-     }
-     ```
+Example:
+```java
+public record User(String name, int age) {
+    // No need to write constructors, getters, equals, hashCode, or toString
+}
+```
+
+2. Pattern Matching for instanceof:
+   - This feature allows you to test if an object is an instance of a specific type and, if so, cast it to that type in a single step.
+   - It simplifies code by eliminating the need for explicit casting after an instanceof check.
+Example:
+```java
+Object obj = "Hello, World!";
+if (obj instanceof String str) {
+    System.out.println(str.toUpperCase()); // No need for explicit casting
+}
+```
+   
